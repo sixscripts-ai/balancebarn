@@ -1,0 +1,11 @@
+# macOS filesystem metadata
+.DS_Store
+assets/.DS_Store
+functions/.DS_Store
+
+# Cloudflare Wrangler local state
+.wrangler/
+
+# Node
+node_modules/
+
