@@ -8,3 +8,7 @@ workers_dev = true
 # Bind the Cloudflare Send Email service to this Worker
 [[send_email]]
 name = "SEND_EMAIL"
+
+# Optional list of recipients for the Worker (comma-separated)
+[vars]
+RECIPIENT_EMAILS = "ask@thebalancebarn.cc"

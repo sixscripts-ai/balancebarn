@@ -10,8 +10,8 @@ export async function onRequestPost(context) {
     };
 
     try {
-    const WORKER_FALLBACK_ENDPOINT = 'https://email.sixscripts.workers.dev/send';
-    const WORKER_SHARED_TOKEN = 'bbn_5b171c7e1b8a4c9eab1e0e8d7fd4a3d0_20251028';
+        const WORKER_FALLBACK_ENDPOINT = 'https://email.sixscripts.workers.dev/send';
+        const WORKER_SHARED_TOKEN = 'bbn_5b171c7e1b8a4c9eab1e0e8d7fd4a3d0_20251028';
 
         const data = await context.request.json();
 
@@ -23,7 +23,9 @@ export async function onRequestPost(context) {
             });
         }
 
-        const to = 'ask@thebalancebarn.cc';
+    // Destination(s) for notifications; override via Pages var RECIPIENT_EMAILS (comma-separated)
+    const recipientsCsv = (context.env && context.env.RECIPIENT_EMAILS) || 'ask@thebalancebarn.cc';
+    const recipients = recipientsCsv.split(',').map(s => s.trim()).filter(Boolean);
 
         let subject, html;
 
@@ -181,7 +183,7 @@ export async function onRequestPost(context) {
         // Create email message
         const message = {
             from: { email: 'ask@thebalancebarn.cc', name: 'The Balance Barn' },
-            to: [{ email: to }],
+            to: recipients.map(email => ({ email })),
             subject: subject,
             html: html
         };
@@ -202,7 +204,7 @@ export async function onRequestPost(context) {
                     'content-type': 'application/json',
                     'authorization': `Bearer ${WORKER_SHARED_TOKEN}`
                 },
-                body: JSON.stringify({ ...data, type: data.type || undefined, _via: 'pages-fallback' })
+                body: JSON.stringify({ ...data, type: data.type || undefined, _via: 'pages-fallback', recipients })
             });
             if (!resp.ok) {
                 const errJson = await resp.json().catch(() => ({}));
@@ -213,7 +215,7 @@ export async function onRequestPost(context) {
             }
         }
 
-        return new Response(JSON.stringify({ ok: true }), {
+        return new Response(JSON.stringify({ ok: true, sentTo: recipients }), {
             status: 200,
             headers: corsHeaders
         });
