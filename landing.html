@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Balance Barn LLC - Your Complete Bookkeeping Solution</title>
+    <meta name="description"
+        content="Expert bookkeeping and financial services for small businesses. Save time, reduce stress, and gain financial clarity.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="landing.css">
+    <!-- Calendly CSS -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Exit Intent Popup -->
+    <div class="exit-popup" id="exitPopup">
+        <div class="exit-popup-overlay"></div>
+        <div class="exit-popup-content">
+            <button class="exit-popup-close" id="exitPopupClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="exit-popup-inner">
+                <i class="fas fa-gift" style="font-size: 48px; color: var(--aggie-maroon); margin-bottom: 20px;"></i>
+                <h2 style="margin-bottom: 15px; font-size: 28px;">Wait! Don't Leave Empty-Handed</h2>
+                <p style="margin-bottom: 25px; color: var(--text-light);">Get our FREE Texas Business Financial
+                    Checklist + 10-Point QuickBooks Setup Guide</p>
+                <form id="exitPopupForm"
+                    style="display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto;">
+                    <input type="email" name="email" placeholder="Enter your email" required
+                        style="padding: 14px; border: 2px solid var(--border-light); border-radius: 8px; font-size: 16px;">
+                    <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-download"></i> Send Me Both Guides
+                    </button>
+                    <p style="font-size: 12px; color: var(--text-light); margin-top: 5px;">No spam, ever. Unsubscribe
+                        anytime.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta" id="floatingCta">
+        <a href="#book-now" class="floating-btn">
+            <i class="fas fa-calendar-check"></i> Book Now
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i> The Balance Barn
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="#who-we-help">Who We Help</a></li>
+                <li><a href="#pricing">Get Quote</a></li>
+                <li><a href="#book-now" class="nav-cta">Book Now</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-shield-alt"></i> Advanced Certified QuickBooks ProAdvisors
+                </div>
+                <h1 class="hero-title">More Time, Less Stress. <span class="gradient-text">Accurate Finances Under
+                        Control.</span></h1>
+                <p class="hero-subtitle">Professional bookkeeping services that save you hours each month, reduce costly
+                    mistakes, and give you the financial clarity to make confident decisions.</p>
+                <div class="hero-cta-group">
+                    <a href="#book-now" class="btn-primary pulse">
+                        <i class="fas fa-calendar-check"></i> Get Your Free Assessment
+                    </a>
+                    <a href="sms:(512)737-8559&body=Hi, I'm interested in bookkeeping services" class="btn-secondary">
+                        <i class="fas fa-comment-sms"></i> Text Us Now
+                    </a>
+                </div>
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <i class="fas fa-check-circle"></i> Family-owned & trusted
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-check-circle"></i> QuickBooks experts
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-check-circle"></i> Real-time financial access
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="dashboard-mockup">
+                    <div class="mockup-header">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="mockup-content">
+                        <div class="metric-card animate-float">
+                            <div class="metric-icon green"><i class="fas fa-arrow-up"></i></div>
+                            <div class="metric-label">Monthly Revenue</div>
+                            <div class="metric-value">$47,392</div>
+                            <div class="metric-change">+23% from last month</div>
+                        </div>
+                        <div class="metric-card animate-float delay-1">
+                            <div class="metric-icon blue"><i class="fas fa-chart-line"></i></div>
+                            <div class="metric-label">Profit Margin</div>
+                            <div class="metric-value">34.2%</div>
+                            <div class="metric-change">+5.8% improvement</div>
+                        </div>
+                        <div class="metric-card animate-float delay-2">
+                            <div class="metric-icon purple"><i class="fas fa-piggy-bank"></i></div>
+                            <div class="metric-label">Cash on Hand</div>
+                            <div class="metric-value">$12,847</div>
+                            <div class="metric-change">Healthy reserves</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Dashboard Comparison -->
+    <section style="background: var(--bg-light); padding: 80px 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">See The Difference Clean Books Make</h2>
+                <p class="section-subtitle">From chaos to clarity in 60 days or less</p>
+            </div>
+
+            <div class="before-after-container">
+                <div class="comparison-card before">
+                    <div class="comparison-label">
+                        <i class="fas fa-times-circle"></i> Before Balance Barn
+                    </div>
+                    <div class="comparison-image">
+                        <div
+                            style="background: linear-gradient(135deg, #ff4444, #cc0000); padding: 40px; border-radius: 12px; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <div
+                                style="position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px; border: 2px dashed rgba(255,255,255,0.3); border-radius: 8px;">
+                            </div>
+                            <i class="fas fa-exclamation-triangle"
+                                style="font-size: 64px; color: white; opacity: 0.9; margin-bottom: 20px;"></i>
+                            <ul style="color: white; text-align: left; font-size: 16px; line-height: 1.8;">
+                                <li>❌ 8 months behind on books</li>
+                                <li>❌ Missing receipts & records</li>
+                                <li>❌ Unclear profit margins</li>
+                                <li>❌ Tax compliance worries</li>
+                                <li>❌ No real-time visibility</li>
+                                <li>❌ 15+ hours/week on bookkeeping</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+
+                <div class="comparison-card after">
+                    <div class="comparison-label success">
+                        <i class="fas fa-check-circle"></i> After Balance Barn
+                    </div>
+                    <div class="comparison-image">
+                        <div
+                            style="background: linear-gradient(135deg, #4CAF50, #2E7D32); padding: 40px; border-radius: 12px; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <div
+                                style="position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px; border: 2px dashed rgba(255,255,255,0.3); border-radius: 8px;">
+                            </div>
+                            <i class="fas fa-chart-line"
+                                style="font-size: 64px; color: white; opacity: 0.9; margin-bottom: 20px;"></i>
+                            <ul style="color: white; text-align: left; font-size: 16px; line-height: 1.8;">
+                                <li>✅ 100% up-to-date & accurate</li>
+                                <li>✅ Every transaction categorized</li>
+                                <li>✅ Clear P&L & balance sheets</li>
+                                <li>✅ Tax-ready all year</li>
+                                <li>✅ Real-time dashboard access</li>
+                                <li>✅ 2 hours/week saved minimum</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Help Section -->
+    <section class="who-we-help" id="who-we-help" style="padding: 80px 0; background: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Industries We Serve</h2>
+                <p class="section-subtitle">Specialized bookkeeping expertise for Texas small businesses</p>
+            </div>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px;">
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Retail & E-commerce</h3>
+                    <p>Inventory tracking, sales tax management, multi-channel reconciliation, and POS integration.</p>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>Contractors & Trades</h3>
+                    <p>Job costing, project tracking, equipment depreciation, and subcontractor 1099s.</p>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Professional Services</h3>
+                    <p>Client billing, time tracking, accounts receivable management, and retainer accounting.</p>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Food & Hospitality</h3>
+                    <p>POS integration, tip tracking, COGS management, and multi-location reporting.</p>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Healthcare & Wellness</h3>
+                    <p>Insurance billing, patient payments, compliance tracking, and provider payroll.</p>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Tech & SaaS</h3>
+                    <p>Subscription revenue, ARR/MRR tracking, burn rate analysis, and investor reporting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bookkeeping Workflow Infographic -->
+    <section style="background: var(--bg-light); padding: 80px 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Simple 4-Step Process</h2>
+                <p class="section-subtitle">From onboarding to ongoing support—here's how we work</p>
+            </div>
+
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="workflow-number">1</div>
+                    <div class="workflow-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Discovery Call</h3>
+                    <p>We learn about your business, review your current books, and identify your needs.</p>
+                    <span class="workflow-time">30 minutes</span>
+                </div>
+
+                <div class="workflow-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="workflow-number">2</div>
+                    <div class="workflow-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Setup & Integration</h3>
+                    <p>We configure QuickBooks, connect your accounts, and establish your chart of accounts.</p>
+                    <span class="workflow-time">3-5 days</span>
+                </div>
+
+                <div class="workflow-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="workflow-number">3</div>
+                    <div class="workflow-icon">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3>Cleanup & Catch-Up</h3>
+                    <p>We clean up historical data, reconcile accounts, and get you current.</p>
+                    <span class="workflow-time">2-4 weeks</span>
+                </div>
+
+                <div class="workflow-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="workflow-number">4</div>
+                    <div class="workflow-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Ongoing Support</h3>
+                    <p>Monthly reconciliation, reporting, and proactive financial insights—every month.</p>
+                    <span class="workflow-time">Ongoing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instant Price Estimator -->
+    <section class="price-estimator" id="pricing" style="padding: 80px 0; background: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get Your Instant Price Estimate</h2>
+                <p class="section-subtitle">See what your monthly bookkeeping will cost in 30 seconds</p>
+            </div>
+
+            <div class="estimator-container">
+                <div class="estimator-form">
+                    <div class="form-step active" data-step="1">
+                        <h3>How many transactions per month?</h3>
+                        <div class="option-grid">
+                            <button class="option-btn" data-value="50" data-next="2">
+                                <i class="fas fa-store-alt"></i>
+                                <span>0-50</span>
+                                <small>Startup</small>
+                            </button>
+                            <button class="option-btn" data-value="150" data-next="2">
+                                <i class="fas fa-chart-line"></i>
+                                <span>51-150</span>
+                                <small>Small Business</small>
+                            </button>
+                            <button class="option-btn" data-value="300" data-next="2">
+                                <i class="fas fa-building"></i>
+                                <span>151-300</span>
+                                <small>Growing</small>
+                            </button>
+                            <button class="option-btn" data-value="500" data-next="2">
+                                <i class="fas fa-rocket"></i>
+                                <span>300+</span>
+                                <small>Established</small>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-step" data-step="2">
+                        <h3>What services do you need?</h3>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="service" value="50" checked>
+                                <span><i class="fas fa-check"></i> Monthly reconciliation</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="service" value="100">
+                                <span><i class="fas fa-check"></i> Accounts payable/receivable</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="service" value="150">
+                                <span><i class="fas fa-check"></i> Payroll processing</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="service" value="75">
+                                <span><i class="fas fa-check"></i> Sales tax filing</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="service" value="50">
+                                <span><i class="fas fa-check"></i> 1099 preparation</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="service" value="100">
+                                <span><i class="fas fa-check"></i> Financial reporting</span>
+                            </label>
+                        </div>
+                        <button class="btn-primary" id="calculatePrice"
+                            style="margin-top: 30px; width: 100%; justify-content: center;">
+                            <i class="fas fa-calculator"></i> Calculate My Price
+                        </button>
+                    </div>
+                </div>
+
+                <div class="estimator-result" id="priceResult" style="display: none;">
+                    <div class="result-content">
+                        <i class="fas fa-check-circle"
+                            style="font-size: 48px; color: #4CAF50; margin-bottom: 20px;"></i>
+                        <h3>Your Estimated Monthly Cost</h3>
+                        <div class="estimated-price">
+                            $<span id="estimatedAmount">549</span>/month
+                        </div>
+                        <p style="margin: 20px 0; color: var(--text-light);">Based on your selections, we recommend our
+                            <strong id="recommendedPlan">Professional</strong> plan
+                        </p>
+                        <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
+                            <a href="#book-now" class="btn-primary">
+                                <i class="fas fa-calendar-check"></i> Book Consultation
+                            </a>
+                            <button class="btn-secondary" id="resetCalculator">
+                                <i class="fas fa-redo"></i> Recalculate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expanded Why Choose Section -->
+    <section style="background: var(--bg-light); padding: 80px 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose The Balance Barn?</h2>
+                <p class="section-subtitle">6 reasons Texas businesses trust us with their finances</p>
+            </div>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px;">
+                <div class="why-choose-card">
+                    <div class="why-choose-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Advanced Certified</h3>
+                    <p>QuickBooks ProAdvisors with advanced certifications and years of experience in small business
+                        accounting.</p>
+                </div>
+
+                <div class="why-choose-card">
+                    <div class="why-choose-icon">
+                        <i class="fas fa-home-heart"></i>
+                    </div>
+                    <h3>Family-Owned</h3>
+                    <p>Personal service and long-term relationships. You're not just a number—you're family.</p>
+                </div>
+
+                <div class="why-choose-card">
+                    <div class="why-choose-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Texas-Based</h3>
+                    <p>We understand local tax laws, regulations, and the unique challenges of Texas businesses.</p>
+                </div>
+
+                <div class="why-choose-card">
+                    <div class="why-choose-icon">
+                        <i class="fas fa-shield-check"></i>
+                    </div>
+                    <h3>100% Accuracy Guarantee</h3>
+                    <p>We stand behind our work. If we make an error, we fix it immediately at no cost to you.</p>
+                </div>
+
+                <div class="why-choose-card">
+                    <div class="why-choose-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning-Fast Response</h3>
+                    <p>Average response time under 2 hours. No waiting days for answers to your financial questions.</p>
+                </div>
+
+                <div class="why-choose-card">
+                    <div class="why-choose-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden fees or surprise charges. You know exactly what you're paying every month.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Resources Section -->
+    <section style="padding: 80px 0; background: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Free Resources for Texas Business Owners</h2>
+                <p class="section-subtitle">Download our most popular guides—no strings attached</p>
+            </div>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1100px; margin: 40px auto 0;">
+                <!-- PDF 1 -->
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3>Texas Business Financial Checklist</h3>
+                    <p>7 bookkeeping mistakes costing Texas business owners thousands every year</p>
+                    <form class="simple-download-form" data-guide="financial-checklist">
+                        <input type="email" name="email" placeholder="Your email" required>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-download"></i> Download Free
+                        </button>
+                    </form>
+                </div>
+
+                <!-- PDF 2 -->
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>10-Point QuickBooks Setup</h3>
+                    <p>Essential checklist for setting up QuickBooks Online the right way from day one</p>
+                    <form class="simple-download-form" data-guide="quickbooks-setup">
+                        <input type="email" name="email" placeholder="Your email" required>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-download"></i> Download Free
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendly Booking Section -->
+    <section class="booking-section" id="book-now" style="padding: 80px 0; background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Book Your Free Consultation</h2>
+                <p class="section-subtitle">Choose a time that works best for you—we're ready when you are</p>
+            </div>
+
+            <!-- SMS Option -->
+            <div style="text-align: center; margin-bottom: 40px;">
+                <p style="font-size: 18px; margin-bottom: 15px; color: var(--text-dark);">Prefer to text? We're here for
+                    you!</p>
+                <a href="sms:(512)737-8559&body=Hi, I'd like to learn more about bookkeeping services"
+                    class="btn-secondary"
+                    style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; font-size: 18px;">
+                    <i class="fas fa-comment-sms"></i> Text Us: (512) 737-8559
+                </a>
+            </div>
+
+            <!-- Calendly Embed -->
+            <div class="calendly-inline-widget"
+                data-url="https://calendly.com/thebalancebarn?hide_gdpr_banner=1&primary_color=500000"
+                style="min-width:320px;height:700px;"></div>
+        </div>
+    </section>
+
+    <!-- What Your CPA Wishes We'd Tell You -->
+    <section class="cpa-section" style="background: var(--light-bg); padding: 60px 0;">
+        <div class="container">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <div
+                        style="display: inline-block; background: var(--white); padding: 8px 20px; border-radius: 20px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <span
+                            style="font-size: 13px; color: var(--aggie-maroon); font-weight: 600; letter-spacing: 0.5px;">💡
+                            INSIDER TIP</span>
+                    </div>
+                    <h3 style="font-size: 26px; color: var(--text-dark); margin-bottom: 10px;">What Your CPA Wishes Your
+                        Bookkeeper Told You</h3>
+                    <p style="color: var(--text-light); font-size: 15px;">We work WITH your CPA, not against them.
+                        Here's what makes tax season smooth:</p>
+                </div>
+
+                <div class="cpa-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div
+                        style="padding: 25px; background: var(--white); border-radius: 12px; border-left: 4px solid var(--aggie-maroon); box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: var(--transition-smooth);">
+                        <h4 style="color: var(--aggie-maroon); font-size: 16px; margin-bottom: 10px; font-weight: 600;">
+                            ✓ "Send me books that reconcile"</h4>
+                        <p style="color: var(--text-light); font-size: 14px; line-height: 1.6;">We close your books
+                            properly every month. Your CPA won't waste billable hours fixing mistakes—they'll focus on
+                            strategy and savings.</p>
+                    </div>
+
+                    <div
+                        style="padding: 25px; background: var(--white); border-radius: 12px; border-left: 4px solid var(--aggie-maroon); box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: var(--transition-smooth);">
+                        <h4 style="color: var(--aggie-maroon); font-size: 16px; margin-bottom: 10px; font-weight: 600;">
+                            ✓ "Track expenses by category, not gut feeling"</h4>
+                        <p style="color: var(--text-light); font-size: 14px; line-height: 1.6;">Proper categorization =
+                            maximum deductions. We know what the IRS allows and set you up for success.</p>
+                    </div>
+
+                    <div
+                        style="padding: 25px; background: var(--white); border-radius: 12px; border-left: 4px solid var(--aggie-maroon); box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: var(--transition-smooth);">
+                        <h4 style="color: var(--aggie-maroon); font-size: 16px; margin-bottom: 10px; font-weight: 600;">
+                            ✓ "Keep personal and business separate"</h4>
+                        <p style="color: var(--text-light); font-size: 14px; line-height: 1.6;">We catch those Costco
+                            runs that were half groceries, half office supplies. Your CPA (and the IRS) will thank you.
+                        </p>
+                    </div>
+
+                    <div
+                        style="padding: 25px; background: var(--white); border-radius: 12px; border-left: 4px solid var(--aggie-maroon); box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: var(--transition-smooth);">
+                        <h4 style="color: var(--aggie-maroon); font-size: 16px; margin-bottom: 10px; font-weight: 600;">
+                            ✓ "Get me your numbers by January 15th"</h4>
+                        <p style="color: var(--text-light); font-size: 14px; line-height: 1.6;">Because we're current
+                            year-round, tax prep is fast. No February panic. No extensions. Just smooth filing.</p>
+                    </div>
+                </div>
+
+                <div
+                    style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, rgba(80,0,0,0.05), rgba(115,47,47,0.05)); border-radius: 12px;">
+                    <p style="color: var(--text-dark); font-size: 15px; margin: 0;"><strong>Pro tip:</strong> Already
+                        have a CPA you love? Perfect. We'll make their life easier and your tax bill smaller.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        @media (max-width: 768px) {
+            .cpa-section {
+                padding: 40px 0 !important;
+            }
+
+            .cpa-section h3 {
+                font-size: 22px !important;
+            }
+
+            .cpa-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>The Balance Barn LLC</h4>
+                    <p>Your trusted partner in bookkeeping and financial services, dedicated to supporting Texas
+                        businesses.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="#who-we-help">Industries</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p><a href="tel:5127378559">(512) 737-8559</a></p>
+                    <p><a href="mailto:ask@thebalancebarn.cc">ask@thebalancebarn.cc</a></p>
+                    <p><a href="sms:(512)737-8559&body=Hi, I'm interested in bookkeeping services"
+                            style="color: var(--brand-light);">
+                            <i class="fas fa-comment-sms"></i> Text us anytime
+                        </a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/thebalancebarn" target="_blank"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="http://linkedin.com/company/the-balance-barn-llc/" target="_blank"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://calendly.com/thebalancebarn" target="_blank"><i
+                                class="fas fa-calendar"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 The Balance Barn LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Calendly Script -->
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script src="script.js"></script>
+    <script src="landing.js"></script>
+</body>
+
+</html>

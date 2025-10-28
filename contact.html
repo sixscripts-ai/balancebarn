@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | The Balance Barn LLC</title>
+    <meta name="description" content="Contact The Balance Barn LLC for a free bookkeeping assessment." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo"><i class="fas fa-chart-line"></i> The Balance Barn</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="index.html#testimonials">Reviews</a></li>
+                <li><a href="contact.html" class="nav-cta">Start</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height: 40vh; padding-top: 120px;">
+        <div class="container hero-container" style="grid-template-columns: 1fr;">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-handshake"></i> Let's Talk About Your Business</div>
+                <h1 class="hero-title">Get Your Free Financial Assessment</h1>
+                <p class="hero-subtitle">Fill in your details and we'll be in touch shortly. No pressure—just clarity
+                    and a clear next step forward.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact" style="padding-top: 40px;">
+        <div class="container">
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="fullName" required />
+                </div>
+                <div class="form-group">
+                    <label>Business Name</label>
+                    <input type="text" name="businessName" required />
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" required />
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" required />
+                </div>
+                <div class="form-group">
+                    <label>Tell us about your business</label>
+                    <textarea rows="4" name="message"></textarea>
+                </div>
+                <!-- Honeypot -->
+                <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
+                <button type="submit" class="btn-primary">Send Me a Free Assessment</button>
+                <p class="form-disclaimer">We'll respond within 24 business hours</p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>The Balance Barn LLC</h4>
+                    <p>Your trusted partner in bookkeeping and financial services, dedicated to supporting businesses of
+                        all sizes.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="index.html#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p><a href="tel:5127378559">(512) 737-8559</a></p>
+                    <p><a href="mailto:ask@thebalancebarn.cc">ask@thebalancebarn.cc</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/thebalancebarn" target="_blank"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="http://linkedin.com/company/the-balance-barn-llc/" target="_blank"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://calendly.com/thebalancebarn" target="_blank"><i
+                                class="fas fa-calendar"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 The Balance Barn LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
