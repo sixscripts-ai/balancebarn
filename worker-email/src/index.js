@@ -28,6 +28,13 @@ export default {
     };
 
     try {
+      // Simple shared-secret auth; rotate by updating in both Worker and Pages
+      const EXPECTED_TOKEN = 'bbn_5b171c7e1b8a4c9eab1e0e8d7fd4a3d0_20251028';
+      const auth = request.headers.get('authorization') || '';
+      if (auth !== `Bearer ${EXPECTED_TOKEN}`) {
+        return new Response(JSON.stringify({ ok: false, error: 'Unauthorized' }), { status: 401, headers: cors });
+      }
+
       const data = await request.json();
 
       // Minimal validation

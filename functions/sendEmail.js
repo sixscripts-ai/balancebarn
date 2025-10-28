@@ -10,7 +10,8 @@ export async function onRequestPost(context) {
     };
 
     try {
-        const WORKER_FALLBACK_ENDPOINT = 'https://email.sixscripts.workers.dev/send';
+    const WORKER_FALLBACK_ENDPOINT = 'https://email.sixscripts.workers.dev/send';
+    const WORKER_SHARED_TOKEN = 'bbn_5b171c7e1b8a4c9eab1e0e8d7fd4a3d0_20251028';
 
         const data = await context.request.json();
 
@@ -197,7 +198,10 @@ export async function onRequestPost(context) {
             // Fallback: forward to dedicated email Worker over HTTPS
             const resp = await fetch(WORKER_FALLBACK_ENDPOINT, {
                 method: 'POST',
-                headers: { 'content-type': 'application/json' },
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `Bearer ${WORKER_SHARED_TOKEN}`
+                },
                 body: JSON.stringify({ ...data, type: data.type || undefined, _via: 'pages-fallback' })
             });
             if (!resp.ok) {
