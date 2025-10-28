@@ -23,9 +23,9 @@ export async function onRequestPost(context) {
             });
         }
 
-    // Destination(s) for notifications; override via Pages var RECIPIENT_EMAILS (comma-separated)
-    const recipientsCsv = (context.env && context.env.RECIPIENT_EMAILS) || 'ask@thebalancebarn.cc';
-    const recipients = recipientsCsv.split(',').map(s => s.trim()).filter(Boolean);
+        // Destination(s) for notifications; override via Pages var RECIPIENT_EMAILS (comma-separated)
+    const recipientsCsv = (context.env && context.env.RECIPIENT_EMAILS) || 'ask@thebalancebarn.cc, aschtion2@gmail.com, contact@thebalancebarn.com';
+        const recipients = recipientsCsv.split(',').map(s => s.trim()).filter(Boolean);
 
         let subject, html;
 

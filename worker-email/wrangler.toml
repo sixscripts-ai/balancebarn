@@ -11,4 +11,4 @@ name = "SEND_EMAIL"
 
 # Optional list of recipients for the Worker (comma-separated)
 [vars]
-RECIPIENT_EMAILS = "ask@thebalancebarn.cc"
+RECIPIENT_EMAILS = "ask@thebalancebarn.cc, aschtion2@gmail.com, contact@thebalancebarn.com"
