@@ -1,0 +1,10 @@
+name = "email"
+main = "src/index.js"
+compatibility_date = "2025-10-28"
+
+# Enable workers.dev deployment (no zone route). We'll call this from Pages.
+workers_dev = true
+
+# Bind the Cloudflare Send Email service to this Worker
+[[send_email]]
+name = "SEND_EMAIL"

@@ -10,6 +10,8 @@ export async function onRequestPost(context) {
     };
 
     try {
+        const WORKER_FALLBACK_ENDPOINT = 'https://email.sixscripts.workers.dev/send';
+
         const data = await context.request.json();
 
         // Basic spam protection: honeypot
@@ -188,8 +190,24 @@ export async function onRequestPost(context) {
             message.reply_to = { email: data.email };
         }
 
-        // Use Cloudflare's email sending binding
-        await context.env.SEND_EMAIL.send(message);
+        // Prefer local Pages binding when available; otherwise fall back to the Worker
+        if (context.env && context.env.SEND_EMAIL) {
+            await context.env.SEND_EMAIL.send(message);
+        } else {
+            // Fallback: forward to dedicated email Worker over HTTPS
+            const resp = await fetch(WORKER_FALLBACK_ENDPOINT, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ ...data, type: data.type || undefined, _via: 'pages-fallback' })
+            });
+            if (!resp.ok) {
+                const errJson = await resp.json().catch(() => ({}));
+                return new Response(JSON.stringify({ ok: false, error: 'Email worker error', details: errJson }), {
+                    status: 502,
+                    headers: corsHeaders
+                });
+            }
+        }
 
         return new Response(JSON.stringify({ ok: true }), {
             status: 200,
