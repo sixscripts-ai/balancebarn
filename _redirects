@@ -1,0 +1,5 @@
+# Cloudflare Pages _redirects file
+# https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Redirect broken blog subdomain to main site
+https://blog.thebalancebarn.com/* https://thebalancebarn.com 301
