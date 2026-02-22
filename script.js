@@ -1,3 +1,9 @@
+// ============= Init Guard (prevents double-init when both script.js + landing.js load) =============
+if (window.__balanceBarnScriptLoaded) {
+    console.warn('script.js already loaded — skipping re-init.');
+} else {
+    window.__balanceBarnScriptLoaded = true;
+
 // ============= DOM Elements =============
 const navbar = document.getElementById('navbar');
 const progressBar = document.getElementById('progressBar');
@@ -61,6 +67,7 @@ window.addEventListener('resize', () => {
 if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
         navMenu.classList.toggle('mobile-open');
+        hamburger.setAttribute('aria-expanded', navMenu.classList.contains('mobile-open'));
     });
 }
 
@@ -71,6 +78,7 @@ if (navMenu) {
             // Only close menu on mobile devices
             if (window.innerWidth <= 768) {
                 navMenu.classList.remove('mobile-open');
+                if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
             }
         });
     });
@@ -138,6 +146,7 @@ if (pricingToggle) pricingToggle.addEventListener('change', (e) => {
 
 // ============= Testimonial Carousel =============
 function createDots() {
+    if (!dotsContainer) return;
     dotsContainer.innerHTML = '';
     for (let i = 0; i < testimonialCount; i++) {
         const dot = document.createElement('div');
@@ -234,99 +243,31 @@ document.querySelectorAll('.faq-item').forEach(item => {
     });
 });
 
-// ============= Contact Form =============
-if (contactForm) contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(contactForm);
-    const data = {
-        fullName: formData.get('fullName'),
-        businessName: formData.get('businessName'),
-        email: formData.get('email'),
-        phone: formData.get('phone'),
-        message: formData.get('message'),
-        website: formData.get('website') // honeypot
-    };
-
-    // Log form data (in production, send to server)
-    try {
-        const res = await fetch('/api/sendEmail', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-
-        if (!res.ok) throw new Error('Network response was not ok');
-        const json = await res.json().catch(() => ({ ok: true }));
-        toast(json.ok ? 'Thank you! We\'ll be in touch within 24 hours.' : 'Thanks!');
-        contactForm.reset();
-    } catch (err) {
-        console.error('Form submit failed:', err);
-        toast('Sorry, something went wrong. Please email ask@thebalancebarn.cc.', true);
-    }
-});
-
-// ============= PDF Download Form =============
-if (pdfDownloadForm) pdfDownloadForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(pdfDownloadForm);
-    const honeypot = formData.get('honeypot');
-
-    // Honeypot check - if filled, it's likely a bot
-    if (honeypot) {
-        toast('Thank you for your interest!');
-        return;
-    }
-
-    const data = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        type: 'pdf-download'
-    };
-
-    // Basic validation
-    if (!data.name || data.name.trim().length < 2) {
-        toast('Please enter your name', true);
-        return;
-    }
-
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!data.email || !emailPattern.test(data.email)) {
-        toast('Please enter a valid email address', true);
-        return;
-    }
-
-    // Show loading state
-    const submitBtn = pdfDownloadForm.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-    submitBtn.disabled = true;
-
-    try {
-        // Send data to server (you'll provide the PDF file later)
-        const res = await fetch('/api/sendEmail', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-
-        if (!res.ok) throw new Error('Network response was not ok');
-
-        // Hide form and show success message
-        pdfDownloadForm.style.display = 'none';
-        document.getElementById('pdfSuccess').style.display = 'block';
-
-        // In production, trigger PDF download here
-        // window.location.href = '/path-to-your-pdf.pdf';
-
-    } catch (err) {
-        console.error('PDF form submit failed:', err);
-        toast('Sorry, something went wrong. Please try again or email us at ask@thebalancebarn.cc.', true);
-        submitBtn.innerHTML = originalBtnText;
-        submitBtn.disabled = false;
-    }
-});
+// ============= Toast Notification (shared) =============
+function showToast(message, isError = false) {
+    const el = document.createElement('div');
+    el.textContent = message;
+    el.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, ${isError ? '#EF4444, #DC2626' : '#10B981, #059669'});
+        color: white;
+        padding: 16px 24px;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        z-index: 10000;
+        animation: slideDown 0.4s ease-out;
+        font-size: 15px;
+        max-width: 90vw;
+        text-align: center;
+    `;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 4000);
+}
+// Keep backward-compat alias
+window.toast = showToast;
 
 // Add animation style
 const style = document.createElement('style');
@@ -344,25 +285,90 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-function toast(message, isError = false) {
-    const el = document.createElement('div');
-    el.textContent = message;
-    el.style.cssText = `
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: linear-gradient(135deg, ${isError ? '#EF4444, #DC2626' : '#10B981, #059669'});
-        color: white;
-        padding: 16px 24px;
-        border-radius: 8px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        z-index: 10000;
-        animation: slideDown 0.4s ease-out;
-    `;
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 4000);
-}
+// ============= Contact Form =============
+if (contactForm) contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(contactForm);
+    const data = {
+        fullName: formData.get('fullName'),
+        businessName: formData.get('businessName'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        message: formData.get('message'),
+        website: formData.get('website') // honeypot
+    };
+
+    try {
+        const res = await fetch('/api/sendEmail', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        if (!res.ok) throw new Error('Network response was not ok');
+        const json = await res.json().catch(() => ({ ok: true }));
+        showToast(json.ok ? 'Thank you! We\'ll be in touch within 24 hours.' : 'Thanks!');
+        contactForm.reset();
+    } catch (err) {
+        console.error('Form submit failed:', err);
+        showToast('Sorry, something went wrong. Please email support@thebalancebarn.com.', true);
+    }
+});
+
+// ============= PDF Download Form =============
+if (pdfDownloadForm) pdfDownloadForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(pdfDownloadForm);
+    const honeypot = formData.get('honeypot');
+
+    if (honeypot) {
+        showToast('Thank you for your interest!');
+        return;
+    }
+
+    const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        type: 'pdf-download'
+    };
+
+    if (!data.name || data.name.trim().length < 2) {
+        showToast('Please enter your name', true);
+        return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!data.email || !emailPattern.test(data.email)) {
+        showToast('Please enter a valid email address', true);
+        return;
+    }
+
+    const submitBtn = pdfDownloadForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Processing...';
+    submitBtn.disabled = true;
+
+    try {
+        const res = await fetch('/api/sendEmail', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        if (!res.ok) throw new Error('Network response was not ok');
+
+        pdfDownloadForm.style.display = 'none';
+        document.getElementById('pdfSuccess').style.display = 'block';
+
+    } catch (err) {
+        console.error('PDF form submit failed:', err);
+        showToast('Sorry, something went wrong. Please try again or email us at support@thebalancebarn.com.', true);
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+    }
+});
 
 // ============= Smooth Scroll Anchor Links =============
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -377,7 +383,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ============= Initialization =============
-console.log('✅ Balance Barn premium website loaded successfully!');
+console.log('✅ Balance Barn website loaded successfully!');
 
 // ============= Results Carousel (Minimal) =============
 function buildResultsDots() {
@@ -424,7 +430,6 @@ document.querySelectorAll('.result-toggle').forEach(btn => {
         const targetId = btn.getAttribute('aria-controls');
         const panel = document.getElementById(targetId);
         const expanded = btn.getAttribute('aria-expanded') === 'true';
-        // close others
         document.querySelectorAll('.result-toggle').forEach(b => {
             const id = b.getAttribute('aria-controls');
             const p = document.getElementById(id);
@@ -438,11 +443,9 @@ document.querySelectorAll('.result-toggle').forEach(btn => {
     });
 });
 
-// Nav buttons
 if (prevResultBtn) prevResultBtn.addEventListener('click', prevResult);
 if (nextResultBtn) nextResultBtn.addEventListener('click', nextResult);
 
-// Touch support
 const resultsTrack = document.querySelector('.results-track');
 if (resultsTrack && resultCount > 0) {
     let startX = 0;
@@ -471,7 +474,6 @@ if (assessmentForm) {
         // Honeypot check
         if (assessmentForm.website && assessmentForm.website.value) return;
 
-        // Collect form data
         const formData = new FormData(assessmentForm);
         const services = formData.getAll('services');
         formData.delete('services');
@@ -492,10 +494,9 @@ if (assessmentForm) {
             message: formData.get('message') || 'No additional details provided'
         };
 
-        // Show loading state
         const submitBtn = assessmentForm.querySelector('button[type="submit"]');
         const originalBtnText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Sending...';
         submitBtn.disabled = true;
 
         try {
@@ -507,10 +508,9 @@ if (assessmentForm) {
 
             if (!res.ok) throw new Error('Network response was not ok');
 
-            // Show success message
             assessmentForm.innerHTML = `
                 <div style="text-align: center; padding: 40px;">
-                    <i class="fas fa-check-circle" style="font-size: 64px; color: #28a745; margin-bottom: 20px;"></i>
+                    <i class="fas fa-check-circle" style="font-size: 64px; color: #28a745; margin-bottom: 20px;" aria-hidden="true"></i>
                     <h3 style="color: var(--aggie-maroon); margin-bottom: 15px; font-size: 24px;">Assessment Received!</h3>
                     <p style="color: var(--text-light); font-size: 16px; margin-bottom: 10px;">Thank you for your detailed information.</p>
                     <p style="color: var(--text-light); font-size: 16px;">We'll review your assessment and contact you within 24 business hours with personalized recommendations.</p>
@@ -520,9 +520,11 @@ if (assessmentForm) {
 
         } catch (err) {
             console.error('Assessment form submit failed:', err);
-            toast('Sorry, something went wrong. Please try again or call us at (512) 737-8559.', true);
+            showToast('Sorry, something went wrong. Please call us at (512) 222-9448.', true);
             submitBtn.innerHTML = originalBtnText;
             submitBtn.disabled = false;
         }
     });
 }
+
+} // end init guard
