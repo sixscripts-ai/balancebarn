@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | The Balance Barn LLC</title>
+    <meta name="description"
+        content="Contact The Balance Barn LLC for a free bookkeeping assessment. We respond within 24 business hours.">
+    <link rel="canonical" href="https://thebalancebarn.com/pages/contact.html" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container nav-container">
+            <div class="logo"><i class="fas fa-chart-line" aria-hidden="true"></i> The Balance Barn</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="/index.html#pricing">Pricing</a></li>
+                <li><a href="/index.html#testimonials">Reviews</a></li>
+                <li><a href="contact.html" class="nav-cta">Start</a></li>
+                <li class="dropdown">
+                    <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">All Pages <i
+                            class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                    <div class="dropdown-content" role="menu">
+                        <a href="/index.html" role="menuitem">Home</a>
+                        <a href="/pages/about.html" role="menuitem">About</a>
+                        <a href="/pages/company-overview.html" role="menuitem">Company Overview</a>
+                        <a href="/pages/team-story.html" role="menuitem">Team Story</a>
+                        <a href="/pages/services.html" role="menuitem">Services</a>
+                        <a href="/pages/services-portfolio.html" role="menuitem">Services Portfolio</a>
+                        <a href="/pages/services-pricing.html" role="menuitem">Services &amp; Pricing</a>
+                        <a href="/pages/services-complete.html" role="menuitem">Services Complete</a>
+                        <a href="/pages/contact.html" role="menuitem">Contact</a>
+                        <a href="/pages/assessment.html" role="menuitem">Assessment</a>
+                        <a href="https://blog.thebalancebarn.com/" target="_blank" rel="noopener noreferrer"
+                            role="menuitem">Blog <i class="fas fa-external-link-alt"
+                                style="font-size: 0.8em; margin-left: 4px;" aria-hidden="true"></i></a>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger" role="button" aria-label="Toggle navigation menu"
+                aria-expanded="false">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height: 40vh; padding-top: 120px;">
+        <div class="container hero-container" style="grid-template-columns: 1fr;">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-handshake" aria-hidden="true"></i> Let's Talk About Your
+                    Business</div>
+                <h1 class="hero-title">Get Your Free Financial Assessment</h1>
+                <p class="hero-subtitle">Fill in your details and we'll be in touch shortly. No pressure—just
+                    clarity and a clear next step forward.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact" style="padding-top: 40px;">
+        <div class="container">
+            <form class="contact-form" id="contactForm" aria-label="Contact form for free consultation">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="e.g. Jane Smith" required
+                        aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="businessName">Business Name</label>
+                    <input type="text" id="businessName" name="businessName" placeholder="e.g. Smith Landscaping LLC"
+                        required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="e.g. jane@yourbusiness.com" required
+                        aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="e.g. (512) 555-0100" required
+                        aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell us about your business</label>
+                    <textarea id="message" rows="4" name="message"
+                        placeholder="Share any specific challenges or questions..."></textarea>
+                </div>
+                <!-- Honeypot -->
+                <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off"
+                    aria-hidden="true">
+                <button type="submit" class="btn-primary"
+                    aria-label="Submit your request for a free consultation">Send Me a Free
+                    Assessment</button>
+                <p class="form-disclaimer">We'll respond within 24 business hours</p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>The Balance Barn LLC</h4>
+                    <p>Your trusted partner in bookkeeping and financial services, dedicated to supporting businesses
+                        of all sizes.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="/index.html#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p><a href="tel:5122229448" aria-label="Call us at 512-222-9448">(512) 222-9448</a></p>
+                    <p><a href="mailto:support@thebalancebarn.com"
+                            aria-label="Email support@thebalancebarn.com">support@thebalancebarn.com</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/thebalancebarn" target="_blank" rel="noopener noreferrer"
+                            aria-label="Visit our Facebook page"><i class="fab fa-facebook"
+                                aria-hidden="true"></i></a>
+                        <a href="https://linkedin.com/company/the-balance-barn-llc/" target="_blank"
+                            rel="noopener noreferrer" aria-label="Visit our LinkedIn company page"><i
+                                class="fab fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="https://calendly.com/thebalancebarn" target="_blank" rel="noopener noreferrer"
+                            aria-label="Schedule a meeting on Calendly"><i class="fas fa-calendar"
+                                aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div
+                style="text-align: center; padding: 40px 0 20px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px;">
+                <h4
+                    style="color: var(--white); margin-bottom: 20px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">
+                    QuickBooks Certified ProAdvisors</h4>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
+                    <img src="../images/quickbooks-online-certification-level-1.png"
+                        alt="QuickBooks ProAdvisor Level 1" style="height: 80px; opacity: 0.9;">
+                    <img src="../images/quickbooks-online-certification-level-2.png"
+                        alt="QuickBooks ProAdvisor Level 2" style="height: 80px; opacity: 0.9;">
+                    <img src="../images/quickbooks-online-payroll-certification.png"
+                        alt="QuickBooks Payroll Certified" style="height: 80px; opacity: 0.9;">
+                    <img src="../images/intuit-bookkeeping-certification.png" alt="Intuit Trained Bookkeeper"
+                        style="height: 80px; opacity: 0.9;">
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 The Balance Barn LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js?v=20251109"></script>
+</body>
+
+</html>
