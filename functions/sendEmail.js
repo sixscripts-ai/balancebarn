@@ -24,7 +24,7 @@ export async function onRequestPost(context) {
         }
 
         // Destination(s) for notifications; override via Pages var RECIPIENT_EMAILS (comma-separated)
-    const recipientsCsv = (context.env && context.env.RECIPIENT_EMAILS) || 'ask@thebalancebarn.cc, aschtion2@gmail.com, contact@thebalancebarn.com';
+        const recipientsCsv = (context.env && context.env.RECIPIENT_EMAILS) || 'ask@thebalancebarn.cc, aschtion2@gmail.com, contact@thebalancebarn.com';
         const recipients = recipientsCsv.split(',').map(s => s.trim()).filter(Boolean);
 
         let subject, html;
@@ -121,6 +121,74 @@ export async function onRequestPost(context) {
 </html>
             `;
 
+        } else if (data.type === 'pdf-download') {
+            const { name = '', email = '' } = data;
+
+            if (!name || !email) {
+                return new Response(JSON.stringify({ error: 'Missing required fields' }), {
+                    status: 400,
+                    headers: corsHeaders
+                });
+            }
+
+            // Mailchimp Automated Lead Capture Integration
+            // Add MAILCHIMP_API_KEY, MAILCHIMP_LIST_ID, and MAILCHIMP_SERVER_PREFIX to your Cloudflare Pages Env Variables
+            if (context.env && context.env.MAILCHIMP_API_KEY && context.env.MAILCHIMP_LIST_ID && context.env.MAILCHIMP_SERVER_PREFIX) {
+                try {
+                    const mailchimpUrl = `https://${context.env.MAILCHIMP_SERVER_PREFIX}.api.mailchimp.com/3.0/lists/${context.env.MAILCHIMP_LIST_ID}/members`;
+                    await fetch(mailchimpUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `auth ${context.env.MAILCHIMP_API_KEY}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email_address: email,
+                            status: 'subscribed',
+                            merge_fields: {
+                                FNAME: name.split(' ')[0] || '',
+                                LNAME: name.split(' ').slice(1).join(' ') || ''
+                            }
+                        })
+                    });
+                } catch (err) {
+                    console.error('Mailchimp integration failed:', err);
+                }
+            }
+
+            subject = `📄 New Lead: PDF Guide Download from ${name}`;
+            html = `
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #500000, #732f2f); color: white; padding: 20px; border-radius: 8px 8px 0 0; }
+        .header h1 { margin: 0; font-size: 24px; }
+        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
+        .section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; border-left: 4px solid #500000; }
+        .field { margin-bottom: 12px; }
+        .label { font-weight: 600; color: #500000; }
+        .value { color: #333; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📄 New Lead - PDF Download</h1>
+        </div>
+        <div class="content">
+            <div class="section">
+                <p>A new visitor has downloaded the free PDF guide.</p>
+                <div class="field"><span class="label">Name:</span> <span class="value">${name}</span></div>
+                <div class="field"><span class="label">Email:</span> <span class="value">${email}</span></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+            `;
         } else {
             // Regular contact form
             const {
@@ -131,14 +199,16 @@ export async function onRequestPost(context) {
                 message = ''
             } = data;
 
-            if (!fullName || !email) {
+            // Only check for what we expect for contact form
+            if ((!fullName && !data.name) || !email) {
                 return new Response(JSON.stringify({ error: 'Missing required fields' }), {
                     status: 400,
                     headers: corsHeaders
                 });
             }
 
-            subject = `New Inquiry from ${fullName}`;
+            const sendName = fullName || data.name;
+            subject = `New Inquiry from ${sendName}`;
             html = `
 <!DOCTYPE html>
 <html>

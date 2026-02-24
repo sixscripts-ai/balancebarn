@@ -1,0 +1,6 @@
+name = "balancebarn"
+compatibility_date = "2025-10-28"
+pages_build_output_dir = "."
+
+# For Pages projects, bindings are configured via the dashboard or deployment
+# The email binding SEND_EMAIL will be added via dashboard

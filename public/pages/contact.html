@@ -19,9 +19,13 @@
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="../index.html#pricing">Pricing</a></li>
+                <li><a href="services-pricing.html#pricing">Pricing</a></li>
                 <li><a href="../index.html#testimonials">Reviews</a></li>
-                <li><a href="contact.html" class="nav-cta">Start</a></li>
+                <li style="display: flex; gap: 10px; align-items: center;">
+                    <a href="https://balancebarn-blog.pages.dev/" target="_blank" class="btn-secondary"
+                        style="padding: 8px 16px; border-radius: 8px; font-weight: 600; text-decoration: none;">Blog</a>
+                    <a href="contact.html" class="nav-cta">Start</a>
+                </li>
                 <li class="dropdown">
                     <button class="dropdown-toggle">All Pages <i class="fas fa-chevron-down"></i></button>
                     <div class="dropdown-content">
@@ -56,8 +60,64 @@
     </section>
 
     <section class="contact" id="contact" style="padding-top: 40px;">
-        <div class="container">
-            <form class="contact-form" id="contactForm">
+        <div class="container"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; align-items: start;">
+            <div>
+                <h2 style="font-size: 28px; margin-bottom: 20px;">Contact Information</h2>
+                <p style="margin-bottom: 20px; font-size: 16px; color: var(--text-light);">
+                    Ready to take control of your finances? Reach out to us for a free assessment, and we'll show you
+                    exactly how we can help your business thrive.
+                </p>
+                <div style="margin-bottom: 30px;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <div
+                            style="width: 40px; height: 40px; border-radius: 50%; background: var(--brand-light); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-envelope" style="color: var(--white);"></i>
+                        </div>
+                        <div>
+                            <p style="margin: 0; font-weight: 600;">Email Us</p>
+                            <a href="mailto:support@thebalancebarn.com"
+                                style="color: var(--text-light); text-decoration: none;">support@thebalancebarn.com</a>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <div
+                            style="width: 40px; height: 40px; border-radius: 50%; background: var(--brand-light); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-phone" style="color: var(--white);"></i>
+                        </div>
+                        <div>
+                            <p style="margin: 0; font-weight: 600;">Call Us</p>
+                            <a href="tel:+15122229448" style="color: var(--text-light); text-decoration: none;">(512)
+                                222-9448</a>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div
+                            style="width: 40px; height: 40px; border-radius: 50%; background: var(--brand-light); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-map-marker-alt" style="color: var(--white);"></i>
+                        </div>
+                        <div>
+                            <p style="margin: 0; font-weight: 600;">Location</p>
+                            <p style="color: var(--text-light); margin: 0;">Georgetown, TX area (Serving Nationwide)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 20px; margin-bottom: 15px;">Service Area</h3>
+                <div
+                    style="width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110195.95254921633!2d-97.747306!3d30.6558661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644d6780caba1eb%3A0xe67cb5faddf14227!2sGeorgetown%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Google Map showing our location in Georgetown, TX">
+                    </iframe>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm"
+                style="margin: 0; background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid var(--border-light);">
+                <h2 style="font-size: 24px; margin-bottom: 25px; text-align: center;">Send Us a Message</h2>
                 <div class="form-group">
                     <label>Full Name</label>
                     <input type="text" name="fullName" required />
@@ -80,8 +140,7 @@
                 </div>
                 <!-- Honeypot -->
                 <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
-                <button type="submit" class="btn-primary">Send Me a Free Assessment</button>
-                <p class="form-disclaimer">We'll respond within 24 business hours</p>
+                <button type="submit" class="btn-primary" style="width: 100%;">Send Request</button>
             </form>
         </div>
     </section>
@@ -100,7 +159,7 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="index.html#pricing">Pricing</a></li>
+                        <li><a href="services-pricing.html#pricing">Pricing</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">

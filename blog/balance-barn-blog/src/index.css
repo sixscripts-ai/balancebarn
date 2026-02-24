@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --border: 0 100% 15%;
+    --input: 0 100% 15%;
+    --ring: 0 100% 31%;
+    --primary: 0 100% 19%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 100% 28%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 346 100% 12%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 64%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 100%;
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 100%;
+  }
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: #1A1A1A;
+}
+
+img {
+  object-position: top;
+}
+
+.fixed {
+  position: fixed;
+}
