@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Bookkeeping & Payroll Services | The Balance Barn LLC</title>
+    <meta name="description"
+        content="Comprehensive bookkeeping and payroll services for small businesses. Transparent pricing, proven process, and expert QuickBooks support nationwide.">
+    <meta name="keywords"
+        content="bookkeeping services, payroll management, QuickBooks services, small business accounting, transparent pricing">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Professional Bookkeeping & Payroll Services | The Balance Barn LLC">
+    <meta property="og:description"
+        content="Expert bookkeeping and payroll services with transparent pricing, proven processes, and nationwide coverage for small businesses.">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/landing.css">
+
+    <style>
+        /* Custom styles for service-focused layout */
+        .services-hero {
+            padding: 120px 24px 80px;
+            background: linear-gradient(135deg, var(--aggie-maroon) 0%, var(--brand-light) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="1" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            opacity: 0.1;
+        }
+
+        .services-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-portfolio {
+            padding: 100px 24px;
+            background: var(--white);
+        }
+
+        .service-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-category {
+            background: var(--light-bg);
+            border: 2px solid var(--border-light);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .service-category:hover {
+            border-color: var(--aggie-maroon);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(80, 0, 0, 0.15);
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, var(--aggie-maroon), var(--brand-light));
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .category-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .category-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .category-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .category-content {
+            padding: 30px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .service-features i {
+            color: var(--aggie-maroon);
+            font-weight: 600;
+        }
+
+        .process-section {
+            padding: 100px 24px;
+            background: var(--gray-900);
+            color: var(--white);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--aggie-maroon), var(--brand-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--white);
+            margin: 0 auto 25px;
+            box-shadow: 0 10px 30px rgba(80, 0, 0, 0.3);
+        }
+
+        .process-step h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray-400);
+        }
+
+        .pricing-section {
+            padding: 100px 24px;
+            background: var(--white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .pricing-tier {
+            background: var(--light-bg);
+            border: 2px solid var(--border-light);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .pricing-tier.featured {
+            border-color: var(--aggie-maroon);
+            transform: scale(1.05);
+            background: var(--white);
+        }
+
+        .pricing-tier:hover {
+            transform: translateY(-8px);
+            border-color: var(--aggie-maroon);
+            box-shadow: 0 20px 50px rgba(80, 0, 0, 0.15);
+        }
+
+        .pricing-tier.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .tier-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--aggie-maroon);
+            margin-bottom: 10px;
+        }
+
+        .tier-subtitle {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .tier-price {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .tier-period {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .tier-features {
+            list-style: none;
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .tier-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .tier-features i {
+            color: var(--aggie-maroon);
+            font-weight: 600;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--aggie-maroon), var(--brand-light));
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .faq-section {
+            padding: 100px 24px;
+            background: linear-gradient(135deg, #f6f6f6 0%, #eaeaea 100%);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .faq-item:hover {
+            border-color: var(--aggie-maroon);
+            box-shadow: 0 10px 30px rgba(80, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .faq-question i {
+            color: var(--aggie-maroon);
+            transition: var(--transition-smooth);
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-answer.active {
+            padding: 25px;
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .comparison-section {
+            padding: 100px 24px;
+            background: var(--white);
+        }
+
+        .comparison-table {
+            background: var(--white);
+            border: 2px solid var(--border-light);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 60px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-header {
+            background: linear-gradient(135deg, var(--aggie-maroon), var(--brand-light));
+            color: var(--white);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0;
+        }
+
+        .comparison-header div {
+            padding: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .comparison-row:hover {
+            background: var(--light-bg);
+        }
+
+        .comparison-row div {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .comparison-label {
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .comparison-yes {
+            color: var(--aggie-maroon);
+            font-weight: 600;
+        }
+
+        .consultation-form {
+            padding: 100px 24px;
+            background: var(--gray-900);
+            color: var(--white);
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 60px 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            font-family: inherit;
+            font-size: 16px;
+            transition: var(--transition-smooth);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--aggie-maroon);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(80, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .service-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-tier.featured {
+                transform: scale(1);
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                overflow-x: auto;
+            }
+
+            .comparison-header,
+            .comparison-row {
+                grid-template-columns: 1fr 1fr 1fr;
+                min-width: 600px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="../images/logo-maroon.png" alt="The Balance Barn" style="height: 50px;">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li style="display: flex; gap: 10px; align-items: center;">
+                        <a href="https://balancebarn-blog.pages.dev/" target="_blank" class="btn-secondary"
+                            style="padding: 8px 16px; border-radius: 8px; font-weight: 600; text-decoration: none;">Blog</a>
+                        <a href="#consultation" class="nav-cta">Free Consultation</a>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropdown-toggle">
+                            All Pages <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="/index.html">Home</a>
+                            <a href="/pages/about.html">About</a>
+                            <a href="/pages/company-overview.html">Company Overview</a>
+                            <a href="/pages/team-story.html">Team Story</a>
+                            <a href="/pages/services.html">Services</a>
+                            <a href="/pages/services-portfolio.html">Services Portfolio</a>
+                            <a href="/pages/services-pricing.html">Services &amp; Pricing</a>
+                            <a href="/pages/services-complete.html">Services Complete</a>
+                            <a href="/pages/contact.html">Contact</a>
+                            <a href="/pages/assessment.html">Assessment</a>
+                            <a href="https://balancebarn-blog.pages.dev/" target="_blank" rel="noopener noreferrer">Blog <i
+                                    class="fas fa-external-link-alt"
+                                    style="font-size: 0.8em; margin-left: 4px;"></i></a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Hero -->
+    <section class="services-hero">
+        <div class="container">
+            <div class="services-content">
+                <div class="hero-badge">
+                    <i class="fas fa-cogs"></i>
+                    Professional Services
+                </div>
+                <h1 class="hero-title">
+                    <span class="gradient-text" style="color: #d4a59a;">Streamline Your Finances,</span> Focus on Growth
+                </h1>
+                <p class="hero-subtitle">
+                    Comprehensive bookkeeping and payroll services designed to save you time, reduce stress, and give
+                    you the financial clarity to make confident business decisions. Transparent pricing, proven
+                    processes, and expert support.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="#consultation" class="btn-primary pulse">
+                        <i class="fas fa-calculator"></i>
+                        Get Started Today
+                    </a>
+                    <a href="#pricing" class="btn-secondary">
+                        <i class="fas fa-dollar-sign"></i>
+                        View Pricing
+                    </a>
+                </div>
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>QuickBooks Certified Professionals</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Flexible Service Terms</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-phone"></i>
+                        <span>Dedicated Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Portfolio -->
+    <section class="service-portfolio" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Service Portfolio</h2>
+                <p class="section-subtitle">
+                    Comprehensive financial services tailored to your business needs, delivered with professional
+                    expertise and personal attention.
+                </p>
+            </div>
+            <div class="service-categories">
+                <div class="service-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3 class="category-title">Monthly Bookkeeping</h3>
+                        <p class="category-subtitle">Complete financial record management</p>
+                    </div>
+                    <div class="category-content">
+                        <p>Professional monthly bookkeeping services that keep your books accurate, up-to-date, and
+                            ready for tax season. We handle the complexity so you can focus on business growth.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Bank & credit card reconciliation</li>
+                            <li><i class="fas fa-check"></i> Account categorization & coding</li>
+                            <li><i class="fas fa-check"></i> Monthly financial statements</li>
+                            <li><i class="fas fa-check"></i> Expense tracking & management</li>
+                            <li><i class="fas fa-check"></i> QuickBooks setup & optimization</li>
+                            <li><i class="fas fa-check"></i> Tax-ready documentation</li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <a href="#consultation" class="btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="category-title">Payroll Management</h3>
+                        <p class="category-subtitle">Complete payroll processing & compliance</p>
+                    </div>
+                    <div class="category-content">
+                        <p>Full-service payroll processing that ensures compliance, accurate payments, and peace of
+                            mind. Your employees get paid on time, every time.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Direct deposit processing</li>
+                            <li><i class="fas fa-check"></i> Federal & state tax filing</li>
+                            <li><i class="fas fa-check"></i> Employee self-service portal</li>
+                            <li><i class="fas fa-check"></i> Year-end reporting & W-2s</li>
+                            <li><i class="fas fa-check"></i> New hire reporting</li>
+                            <li><i class="fas fa-check"></i> Benefits administration support</li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <a href="#consultation" class="btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3 class="category-title">Financial Reporting</h3>
+                        <p class="category-subtitle">Insights that drive business decisions</p>
+                    </div>
+                    <div class="category-content">
+                        <p>Custom financial reports and dashboards that provide clear insights into your business
+                            performance, helping you make informed strategic decisions.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Profit & loss statements</li>
+                            <li><i class="fas fa-check"></i> Balance sheet preparation</li>
+                            <li><i class="fas fa-check"></i> Cash flow analysis & forecasting</li>
+                            <li><i class="fas fa-check"></i> Custom KPI dashboards</li>
+                            <li><i class="fas fa-check"></i> Budget vs. actual reporting</li>
+                            <li><i class="fas fa-check"></i> Financial trend analysis</li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <a href="#consultation" class="btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="category-title">QuickBooks Setup & Training</h3>
+                        <p class="category-subtitle">Optimize your accounting software</p>
+                    </div>
+                    <div class="category-content">
+                        <p>Professional QuickBooks setup, customization, and training to maximize your accounting
+                            software efficiency and ensure best practices from day one.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Initial setup & configuration</li>
+                            <li><i class="fas fa-check"></i> Chart of accounts customization</li>
+                            <li><i class="fas fa-check"></i> Staff training & support</li>
+                            <li><i class="fas fa-check"></i> Integration with business tools</li>
+                            <li><i class="fas fa-check"></i> Best practices implementation</li>
+                            <li><i class="fas fa-check"></i> Ongoing optimization</li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <a href="#consultation" class="btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <h3 class="category-title">Tax Preparation Support</h3>
+                        <p class="category-subtitle">Organized books for easy tax filing</p>
+                    </div>
+                    <div class="category-content">
+                        <p>Organized books and supporting documents ready for tax filing, reducing your accountant's
+                            preparation time and ensuring compliance.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Year-end closeout services</li>
+                            <li><i class="fas fa-check"></i> Tax document organization</li>
+                            <li><i class="fas fa-check"></i> 1099 & W-2 preparation</li>
+                            <li><i class="fas fa-check"></i> Sales tax compliance</li>
+                            <li><i class="fas fa-check"></i> Accountant collaboration</li>
+                            <li><i class="fas fa-check"></i> Audit support</li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <a href="#consultation" class="btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="category-title">Financial Consulting</h3>
+                        <p class="category-subtitle">Strategic business insights</p>
+                    </div>
+                    <div class="category-content">
+                        <p>Strategic financial advice and business insights to help you make informed decisions, plan
+                            for growth, and optimize your business operations.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Business performance analysis</li>
+                            <li><i class="fas fa-check"></i> Cash flow forecasting</li>
+                            <li><i class="fas fa-check"></i> Cost reduction strategies</li>
+                            <li><i class="fas fa-check"></i> Growth planning support</li>
+                            <li><i class="fas fa-check"></i> Financial health assessments</li>
+                            <li><i class="fas fa-check"></i> Strategic planning sessions</li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <a href="#consultation" class="btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Process -->
+    <section class="process-section" id="process">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: var(--white);">Our Proven 4-Step Process</h2>
+                <p class="section-subtitle" style="color: var(--gray-400);">
+                    A systematic approach that ensures accuracy, efficiency, and exceptional results for every client.
+                </p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery & Setup</h3>
+                    <p>We learn about your business, current systems, and specific needs. This includes a comprehensive
+                        consultation and QuickBooks setup or optimization.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Data Migration & Integration</h3>
+                    <p>We migrate your existing financial data, set up automated workflows, and integrate with your
+                        existing business tools for seamless operations.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Monthly Operations</h3>
+                    <p>Regular monthly services including reconciliation, reporting, and proactive financial insights.
+                        You receive timely updates and clear communication.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Strategic Reviews</h3>
+                    <p>Quarterly financial reviews and strategic planning sessions to help you make informed decisions
+                        and plan for sustainable business growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing & Packages -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Transparent Pricing</h2>
+                <p class="section-subtitle">
+                    No hidden fees, no surprises. Choose the package that fits your business needs, with the flexibility
+                    to scale as you grow.
+                </p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-tier">
+                    <h3 class="tier-name">Essential</h3>
+                    <p class="tier-subtitle">Perfect for small businesses getting started</p>
+                    <div class="tier-price">Call for Inquiries</div>
+                    <div class="tier-period">&nbsp;</div>
+                    <ul class="tier-features">
+                        <li><i class="fas fa-check"></i> Monthly bookkeeping</li>
+                        <li><i class="fas fa-check"></i> Bank reconciliation</li>
+                        <li><i class="fas fa-check"></i> Financial statements</li>
+                        <li><i class="fas fa-check"></i> QuickBooks setup</li>
+                        <li><i class="fas fa-check"></i> Email support</li>
+                    </ul>
+                    <a href="#consultation" class="btn-secondary">Get Started</a>
+                </div>
+
+                <div class="pricing-tier featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3 class="tier-name">Professional</h3>
+                    <p class="tier-subtitle">Complete solution for growing businesses</p>
+                    <div class="tier-price">Call for Inquiries</div>
+                    <div class="tier-period">&nbsp;</div>
+                    <ul class="tier-features">
+                        <li><i class="fas fa-check"></i> Everything in Essential</li>
+                        <li><i class="fas fa-check"></i> Payroll management</li>
+                        <li><i class="fas fa-check"></i> Tax preparation support</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Quarterly reviews</li>
+                    </ul>
+                    <a href="#consultation" class="btn-primary">Get Started</a>
+                </div>
+
+                <div class="pricing-tier">
+                    <h3 class="tier-name">Enterprise</h3>
+                    <p class="tier-subtitle">Comprehensive solution for established businesses</p>
+                    <div class="tier-price">Call for Inquiries</div>
+                    <div class="tier-period">&nbsp;</div>
+                    <ul class="tier-features">
+                        <li><i class="fas fa-check"></i> Everything in Professional</li>
+                        <li><i class="fas fa-check"></i> Financial consulting</li>
+                        <li><i class="fas fa-check"></i> Custom reporting</li>
+                        <li><i class="fas fa-check"></i> Phone support</li>
+                        <li><i class="fas fa-check"></i> Strategic planning</li>
+                    </ul>
+                    <a href="#consultation" class="btn-secondary">Get Started</a>
+                </div>
+            </div>
+            <div
+                style="text-align: center; margin-top: 40px; padding: 30px; background: var(--light-bg); border-radius: 16px;">
+                <h4 style="color: var(--aggie-maroon); margin-bottom: 15px;">All Plans Include</h4>
+                <p style="color: var(--text-light); line-height: 1.6;">
+                    No setup fees • Flexible service agreements •
+                    QuickBooks certified professionals • Secure cloud-based solutions •
+                    Transparent cancellation process
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">
+                    Get answers to common questions about our services, processes, and how we can help your business.
+                </p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How quickly can you get started with my books?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Typically, we can have you up and running within 1-2 weeks. This includes the initial
+                            consultation, data migration, and QuickBooks setup. For urgent situations, we offer
+                            expedited onboarding within 3-5 business days.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What if I'm already using QuickBooks?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No problem! We'll review your existing setup, optimize your QuickBooks configuration, and
+                            ensure everything is organized properly. Our QuickBooks certified team can improve even
+                            well-maintained systems.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you work with businesses in my industry?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We work with businesses across all industries including retail, construction,
+                            professional services, e-commerce, healthcare, real estate, and more. Our team has
+                            experience with industry-specific accounting needs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do you ensure data security?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We use bank-level security with 256-bit SSL encryption, secure cloud-based solutions, and
+                            strict confidentiality protocols. All team members are background-checked and bound by
+                            confidentiality agreements.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What if I need to cancel my service?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can cancel your service with written notice. We'll provide you with all your data in
+                            standard formats and ensure a smooth transition to maintain your business continuity.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you work with my existing accountant?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We often work alongside your existing accountant or tax preparer. We handle the
+                            day-to-day bookkeeping while they focus on tax planning and preparation. This collaboration
+                            often saves clients time and money.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How often will we communicate?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You'll receive monthly financial reports and have access to your books in real-time. We also
+                            conduct quarterly strategic reviews and are available for questions anytime via email or
+                            scheduled calls.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What makes you different from other bookkeeping services?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We're a family-owned business with Texas A&M educated team members, 100% QuickBooks
+                            certified, and we treat every client like family. Our combination of technical expertise and
+                            personal service is what sets us apart.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Comparison -->
+    <section class="comparison-section" id="comparison">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Balance Barn vs. Competitors</h2>
+                <p class="section-subtitle">
+                    See how our comprehensive approach compares to other bookkeeping services.
+                </p>
+            </div>
+            <div class="comparison-table">
+                <div class="comparison-header">
+                    <div>Features & Services</div>
+                    <div>The Balance Barn</div>
+                    <div>Typical Competitors</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">Family-owned business</div>
+                    <div class="comparison-yes"><i class="fas fa-check"></i></div>
+                    <div><i class="fas fa-times"></i></div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">100% QuickBooks certified team</div>
+                    <div class="comparison-yes"><i class="fas fa-check"></i></div>
+                    <div>Partial</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">Texas A&M educated team</div>
+                    <div class="comparison-yes"><i class="fas fa-check"></i></div>
+                    <div><i class="fas fa-times"></i></div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">Monthly financial reviews</div>
+                    <div class="comparison-yes"><i class="fas fa-check"></i></div>
+                    <div><i class="fas fa-times"></i></div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">Quarterly strategic planning</div>
+                    <div class="comparison-yes"><i class="fas fa-check"></i></div>
+                    <div><i class="fas fa-times"></i></div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">Direct access to your team</div>
+                    <div class="comparison-yes"><i class="fas fa-check"></i></div>
+                    <div>Limited</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">Flexible service agreements</div>
+                    <div class="comparison-yes"><i class="fas fa-check"></i></div>
+                    <div><i class="fas fa-times"></i></div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">Industry expertise</div>
+                    <div class="comparison-yes"><i class="fas fa-check"></i></div>
+                    <div>General only</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Form -->
+    <section class="consultation-form" id="consultation">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: var(--white);">Ready to Get Started?</h2>
+                <p class="section-subtitle" style="color: var(--gray-400);">
+                    Schedule your free 30-minute consultation and discover how The Balance Barn can transform your
+                    business finances.
+                </p>
+            </div>
+            <div class="form-container">
+                <form>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Business Name *</label>
+                            <input type="text" id="company" name="company" required placeholder="Your business name">
+                        </div>
+                        <div class="form-group">
+                            <label for="industry">Industry</label>
+                            <select id="industry" name="industry">
+                                <option value="">Select your industry</option>
+                                <option value="retail">Retail/E-commerce</option>
+                                <option value="construction">Construction</option>
+                                <option value="professional">Professional Services</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="real-estate">Real Estate</option>
+                                <option value="restaurant">Restaurant/Food Service</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="services">Services of Interest</label>
+                            <select id="services" name="services">
+                                <option value="">Select services</option>
+                                <option value="bookkeeping">Monthly Bookkeeping</option>
+                                <option value="payroll">Payroll Management</option>
+                                <option value="reporting">Financial Reporting</option>
+                                <option value="quickbooks">QuickBooks Setup</option>
+                                <option value="tax">Tax Preparation Support</option>
+                                <option value="consulting">Financial Consulting</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 20px;">
+                        <label for="message">Tell us about your business and needs</label>
+                        <textarea id="message" name="message" rows="4"
+                            placeholder="Share details about your business, current challenges, or specific questions..."></textarea>
+                    </div>
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button type="submit" class="btn-primary" style="font-size: 18px; padding: 16px 32px;">
+                            <i class="fas fa-calendar-check"></i>
+                            Schedule My Free Consultation
+                        </button>
+                    </div>
+                </form>
+                <div class="hero-trust" style="justify-content: center; margin-top: 40px;">
+                    <div class="trust-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Free 30-minute consultation</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>100% confidential</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-heart"></i>
+                        <span>No pressure, just answers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <img src="../images/logo-white.png" alt="The Balance Barn" style="height: 60px;">
+                    </div>
+                    <p>Professional bookkeeping and payroll services for small businesses nationwide. Family-owned and
+                        Texas A&M educated.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Bookkeeping Services</a></li>
+                        <li><a href="#services">Payroll Management</a></li>
+                        <li><a href="#services">Financial Reporting</a></li>
+                        <li><a href="#services">QuickBooks Setup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="index.html">Our Story</a></li>
+                        <li><a href="index.html#team">Meet Our Team</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Georgetown, Texas</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> support@thebalancebarn.com</li>
+                        <li><a href="#consultation">Schedule Consultation</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div
+                style="text-align: center; padding: 40px 0 20px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px;">
+                <h4
+                    style="color: var(--white); margin-bottom: 20px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">
+                    QuickBooks Certified ProAdvisors</h4>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
+                    <img src="../images/quickbooks-online-certification-level-1.png" alt="QuickBooks ProAdvisor Level 1"
+                        style="height: 80px; opacity: 0.9;">
+                    <img src="../images/quickbooks-online-certification-level-2.png" alt="QuickBooks ProAdvisor Level 2"
+                        style="height: 80px; opacity: 0.9;">
+                    <img src="../images/quickbooks-online-payroll-certification.png" alt="QuickBooks Payroll Certified"
+                        style="height: 80px; opacity: 0.9;">
+                    <img src="../images/intuit-bookkeeping-certification.png" alt="Intuit Trained Bookkeeper"
+                        style="height: 80px; opacity: 0.9;">
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 The Balance Barn LLC. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <a href="#consultation" class="floating-btn">
+            <i class="fas fa-calendar-check"></i>
+            Free Consultation
+        </a>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../js/script.js?v=20251109"></script>
+    <script src="../js/landing.js?v=20251109"></script>
+
+    <script>
+        // Dropdown toggle function
+        function toggleDropdown(event) {
+            event.stopPropagation();
+            const dropdown = event.target.closest('.dropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function (event) {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function () {
+                    navMenu.classList.toggle('mobile-open');
+                    hamburger.classList.toggle('active');
+                });
+            }
+
+            // FAQ Toggle
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function () {
+                    const faqItem = this.parentElement;
+                    const answer = faqItem.querySelector('.faq-answer');
+                    const icon = this.querySelector('i');
+
+                    // Close other FAQs
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        if (item !== faqItem) {
+                            item.querySelector('.faq-answer').classList.remove('active');
+                            item.querySelector('.faq-question i').style.transform = 'rotate(0deg)';
+                        }
+                    });
+
+                    // Toggle current FAQ
+                    answer.classList.toggle('active');
+                    icon.style.transform = answer.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+                });
+            });
+
+            // Form submission
+            document.querySelector('form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Thank you for your interest! We\'ll contact you within 24 hours to schedule your free consultation.');
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
