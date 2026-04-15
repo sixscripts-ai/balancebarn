@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block implementation/private paths
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+
+Sitemap: https://thebalancebarn.com/sitemap.xml
